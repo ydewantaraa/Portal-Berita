@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import NewsPortal from "./NewsPortal";
+import "./styles.css";
+import "./script.js";
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Set state awal jika diperlukan
+    };
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    // Dipanggil setelah komponen telah dimasukkan ke dalam DOM
+    console.log("Component did mount");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Dipanggil setelah pembaruan komponen
+    console.log("Component did update");
+  }
+
+  componentWillUnmount() {
+    // Dipanggil sebelum komponen dihapus dari DOM
+    console.log("Component will unmount");
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="bg-dark text-white text-center py-4">
+          <h1>Portal Berita</h1>
+        </header>
+        <NewsPortal />
+      </div>
+    );
+  }
 }
 
 export default App;
